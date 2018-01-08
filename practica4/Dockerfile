@@ -5,4 +5,4 @@ WORKDIR /home/project/practica4
 COPY requirements.txt /home/project/practica4
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /home/project/practica3
+COPY . /home/project/practica4
