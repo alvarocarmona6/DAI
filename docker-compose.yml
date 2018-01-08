@@ -1,0 +1,19 @@
+version: '2.0'
+
+services:
+
+  p3:
+    restart: always
+    build: ./practica4
+    ports:
+      - "8000:8000"
+    command: gunicorn -w 1 -b :8000 practica4:app
+
+
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - "5000:5000"
+    depends_on:
+        - practica4
