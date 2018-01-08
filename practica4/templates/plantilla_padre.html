@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PRACTICA4</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/boot7strap.css" />
+  <script src="/static/jquery.min.js"></script>
+  <script src="/static/bootstrap.min.js"></script>
+  <script src="/static/funciones24.js"></script>
+</head>
+
+
+<body>
+ <header class="header-fixed">
+        <div class = "header-limiter">
+            <h1 >  Practica 4</h1>
+              <button> Ocultar</button>
+               
+       
+                <div class="header-log">
+                        {% if session['usuario'] %}
+                                <h1>Usuario {{session['usuario']}}</h1>
+			        <a href="/logout">Logout </a><br>
+                        {% else %}
+                        <form action="/login" method="post">
+                        <label>Usuario</label>
+                        <input type="text" style="color:black;" name="usuario"> <br>
+                        <label>Clave</label>
+                        <input type="password" style="color:black;" name="pwd"> <br>
+                        <input type="submit" style="color:black;" name="login" value="Login">
+                        </form>
+                        {% endif %}
+                    
+                </div>
+        </div>
+    </header>
+
+<div id ="contenido">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+        
+          
+              <li><a href="/">Padre</a></li>
+              <li><a href="/hijo1">Hijo1</a></li>
+              <li><a href="/hijo2">Hijo2</a></li>
+              <li><a href="/hijo3">Hijo3</a></li>
+              <li><a href="/hijo4">Hijo4</a></li>
+              <li><a href="/busquedarestaurante">Busqueda restaurante</a></li>
+               
+               <li> <a class="aumFuente" href="#">Aumentar</a></li>
+               <li> <a class="disFuente" href="#">Disminuir</a></li>
+               <li> <a class="reiFuente" href="#">Reiniciar</a></li>
+            
+              {% if session['usuario'] %}
+                       
+		      	<li><a href={{session['urls'][2]}}>Última Página Visitada</a></li>
+		      	<li><a href={{session['urls'][1]}}>Penúltima Página Visitada</a></li>
+		      	<li><a href={{session['urls'][0]}}>Antepenúltima Página Visitada</a></li>
+                        
+                        <li><a href="/verusuario">Ver usuario</a></li>
+                        <li><a href="/editarusuario">Editar usuario</a></li>
+                {% endif %}
+                        
+          </ul>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/crearusuario"> Sign Up</a></li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+
+
+
+
+
+<div id="cuerpo2">
+        {% block cuerpo2 %}
+                <h1> Soy el padre </h1>
+        {% endblock %}
+        </div>
+</div>
+
+
+
+<footer class="footer-distributed">
+
+			<div class="footer-right">
+
+				
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a href="http://google.es">Inicio</a>
+					·
+					<a href="http://google.es">Mapa del sitio</a>
+					·
+					<a href="http://google.es">Búsqueda</a>
+					·
+					<a href="http://google.es">Términos de uso</a>
+					·
+					<a href="http://google.es">Contacto</a>
+				</p>
+
+				<p>© Universidad de Granada. Cuesta del Hospicio S/N 18071. Granada. SPAIN</p>
+			</div>
+
+		</footer>
+
+</body>

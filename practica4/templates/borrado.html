@@ -1,0 +1,32 @@
+
+
+<nav>
+        <div id="navegacion">
+            <ul>
+              <li ><a href="/">Padre</a></li>
+              <li><a href="/hijo1">Hijo1</a></li>
+              <li><a href="/hijo2">Hijo2</a></li>
+              <li><a href="/hijo3">Hijo3</a></li>
+              <li><a href="/hijo4">Hijo4</a></li>
+              <li><a href="/crearusuario">Registrar usuario</a></li>
+              <li><a href="/busquedarestaurante">Busqueda restaurante</a></li>
+             
+              {% if session['usuario'] %}
+
+		      	<li><a href={{session['urls'][2]}}>Última Página Visitada</a></li>
+		      	<li><a href={{session['urls'][1]}}>Penúltima Página Visitada</a></li>
+		      	<li><a href={{session['urls'][0]}}>Antepenúltima Página Visitada</a></li>
+                        <li><a href="/verusuario">Ver usuario</a></li>
+                        <li><a href="/editarusuario">Editar usuario</a></li>
+                        
+	      {% endif %}
+            </ul>
+            </div>
+        
+  </nav>
+
+        <div id="cuerpo2">
+        {% block cuerpo2 %}
+                <h1> Soy el padre </h1>
+        {% endblock %}
+        </div>

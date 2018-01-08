@@ -1,0 +1,4 @@
+ var url = "/busquedarestaurante?page="
+                var url_2 = n.toString()
+                var url_final = url.concat(url_2)
+                $("html").load(url_final)

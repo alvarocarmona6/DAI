@@ -1,0 +1,16 @@
+{% extends "plantilla_padre.html" %}
+
+
+ {% block cuerpo2 %}
+
+        <form action="/editarusuario" method="post">
+        <label>Usuario</label>
+        <input type="text" name="usuario" value = {{ nombre }}> <br>
+        <label>Clave</label>
+        <input type="password" name="pwd" value = {{ clave }}> <br>
+        <label>Direccion</label>
+        <input type="text" name="direccion" value ={{ direccion }}> <br>
+        <input type="submit" name="crear" value="Editar">
+        </form>
+
+ {% endblock %}

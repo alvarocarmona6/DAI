@@ -1,0 +1,16 @@
+{% extends "plantilla_padre.html" %}
+
+
+ {% block cuerpo2 %}
+
+        <form action="/crearusuario" method="post">
+        <label>Usuario</label>
+        <input type="text" name="usuario"> <br>
+        <label>Clave</label>
+        <input type="password" name="pwd"> <br>
+        <label>Direccion</label>
+        <input type="text" name="direccion"> <br>
+        <input type="submit" name="crear" value="Registrar">
+        </form>
+
+ {% endblock %}

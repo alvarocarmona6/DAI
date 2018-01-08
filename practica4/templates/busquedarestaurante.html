@@ -1,0 +1,54 @@
+{% extends "plantilla_padre.html" %}
+
+
+ {% block cuerpo2 %}
+
+        <form action="/busquedarestaurante" method="post">
+      
+        <label>Barrio</label>
+        <input type="text" name="barrio" > <br>
+      
+        <input type="submit" name="crear" value="Busqueda">
+        </form>
+        {{error}}
+         <div id = contenido_restaurante>
+        {%for item in Restaurante  %}
+       
+                {{ item }} <br>
+
+        {% endfor %}    
+        </div>
+
+
+        <input type="submit" value="Anterior" id="Anterior" >
+        <input type="submit" value="Siguiente" id="Siguiente" >
+
+
+
+
+        <script>
+
+        $('#Siguiente').click(function() {
+             $.get('/get_mas',                      
+                    function (data) {         
+                       $('#contenido_restaurante').text(data.filtro);
+                    }
+                 );
+              });
+
+        $('#Anterior').click(function() {
+             $.get('/get_menos',                      
+                    function (data) {          
+                       $('#contenido_restaurante').text(data.filtro);
+                    }
+                 );
+              });
+
+
+       
+    </script>
+       
+
+
+
+{% endblock %}
